@@ -1,7 +1,6 @@
 import { Box, Button, Flex, Image, useBreakpointValue, Menu, MenuButton, MenuList, IconButton } from "@chakra-ui/react";
 import { HamburgerIcon } from '@chakra-ui/icons';
 import React from "react";
-import Logo from "../assets/Transparent Logo.png";
 
 const MenuItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <Button variant="link" color="#FF8700" mr={2}>{children}</Button>
@@ -11,32 +10,51 @@ const Navbar: React.FC = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Flex as="nav" bg="black" px={4} py={2} align="center">
-      <Image src={Logo} alt="Logo" boxSize="50px" margin="8px" style={{ filter: 'drop-shadow(0px 0px 10px white)' }} />
-  <Box ml="auto">
-        {isMobile ? (
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label="Options"
-              icon={<HamburgerIcon />}
-              variant="outline"
-            />
-            <MenuList>
-              <MenuItem>About</MenuItem>
-              <MenuItem>Portfolio</MenuItem>
-              <MenuItem>Contact</MenuItem>
-            </MenuList>
-          </Menu>
-        ) : (
-          <>
-            <MenuItem>About</MenuItem>
-            <MenuItem>Portfolio</MenuItem>
-            <MenuItem>Contact</MenuItem>
-          </>
-        )}
-      </Box>
-    </Flex>
+    <Box position="sticky" top="12px" zIndex="1">
+      <Flex
+        as="nav"
+        px={4}
+        py={2}
+        align="center"
+        justify="center"
+        minHeight="80px"
+        borderRadius="192px"
+        width="30rem"
+        margin="auto"
+        style={{
+          background: 'linear-gradient(128deg, rgba(99, 99, 102, 0.2048) 100%, rgba(0, 0, 0, 0.064) 100%)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          boxShadow: 'inset 0px 0px 0px 1px #ffffff16',
+        }}
+      >
+        <Box ml="auto" mr="auto">
+          <Flex justifyContent="space-between">
+            {isMobile ? (
+              <Menu>
+                <MenuButton
+                  as={IconButton}
+                  aria-label="Options"
+                  icon={<HamburgerIcon />}
+                  variant="outline"
+                />
+                <MenuList>
+                  <MenuItem>About</MenuItem>
+                  <MenuItem>Portfolio</MenuItem>
+                  <MenuItem>Contact</MenuItem>
+                </MenuList>
+              </Menu>
+            ) : (
+              <>
+                <MenuItem>About</MenuItem>
+                <MenuItem>Portfolio</MenuItem>
+                <MenuItem>Contact</MenuItem>
+              </>
+            )}
+          </Flex>
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 
