@@ -2,15 +2,33 @@ import { Box, Button, Flex, Image, useBreakpointValue, Menu, MenuButton, MenuLis
 import { HamburgerIcon } from '@chakra-ui/icons';
 import React from "react";
 
+const fontStyles = {
+  fontFamily: "'Rubik Glitch', 'sans-serif', 'Lato', sans-serif",
+};
+
 const MenuItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <Button variant="link" color="#FF8700" mr={2}>{children}</Button>
+  <Button 
+    variant="link" 
+    color="#FF8700" 
+    mr={2}
+    fontSize="3xl"
+    _hover={{
+      textDecoration: "none",
+      background: "linear-gradient(to top, white 1%, #FF8700 10%, white 89%)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      fontFamily: "Rubik Glitch"
+    }}
+  >
+    {children}
+  </Button>
 );
 
 const Navbar: React.FC = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box position="sticky" top="12px" zIndex="1">
+    <Box position="sticky" top="21px" zIndex="1">
       <Flex
         as="nav"
         px={4}
@@ -39,16 +57,18 @@ const Navbar: React.FC = () => {
                   variant="outline"
                 />
                 <MenuList>
-                  <MenuItem>About</MenuItem>
-                  <MenuItem>Portfolio</MenuItem>
-                  <MenuItem>Contact</MenuItem>
+                  <MenuItem>WHAT</MenuItem>
+                  <MenuItem>WHY</MenuItem>
+                  <MenuItem>WHO</MenuItem>
+                  <MenuItem>HOW</MenuItem>
                 </MenuList>
               </Menu>
             ) : (
               <>
-                <MenuItem>About</MenuItem>
-                <MenuItem>Portfolio</MenuItem>
-                <MenuItem>Contact</MenuItem>
+                <MenuItem>WHAT</MenuItem>
+                <MenuItem>WHY</MenuItem>
+                <MenuItem>WHO</MenuItem>
+                <MenuItem>HOW</MenuItem>
               </>
             )}
           </Flex>

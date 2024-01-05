@@ -3,12 +3,21 @@ import {
   Grid,
   Image,
   Flex,
-  useTheme,
   Heading,
   Text,
 } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import Logo from "../assets/Transparent Logo.svg";
+import { keyframes } from '@emotion/react';
+import Logo from "../../assets/Transparent Logo.svg";
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 const Landing: React.FC = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -17,7 +26,6 @@ const Landing: React.FC = () => {
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const toRotate = ["Developer", "Voluntarist", "Bitcoiner"];
   const period = 2000;
-  const theme = useTheme();
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -60,37 +68,42 @@ const Landing: React.FC = () => {
       p={4}
       alignItems="center"
       justifyItems="center"
-      bgGradient={`radial(circle at center, ${theme.colors.background.dark}, ${theme.colors.background.black})`}
+      bgGradient="radial(circle at center, #1C1C1E, #1A1A1E, #000000)"
       marginTop={-100}
     >
+      <Box position="relative" width="230px" height="230px">
       <Box
-        borderRadius="full"
-        overflow="hidden"
-        maxW={{ base: "300px", lg: "300px" }}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
+  position="absolute"
+  top="14%"
+  left="21.5%"
+  width="220px"
+  height="220px"
+  borderRadius="full"
+  bgGradient="linear(to bottom right, #FF8700, #ffbf00, #ffcf40, #ffffff)"
+  animation={`${rotate} 5s linear infinite`}
+  transform="translate(-50%, -50%)"
+/>
         <Flex
-          w={{ base: "300px", lg: "300px" }}
-          h={{ base: "300px", lg: "300px" }}
-          alignItems="center"
-          justifyContent="center"
+          width="300px"
+          height="300px"
           borderRadius="full"
           overflow="hidden"
+          margin="10px"
+          alignItems="center"
+          justifyContent="center"
         >
           <Image
             src={Logo}
             alt="Profile"
             boxSize="100%"
             objectFit="cover"
-            style={{ filter: "drop-shadow(0px 0px 6px white)" }}
+            zIndex="1"
           />
         </Flex>
       </Box>
       <Box
         gridColumn={{ base: "span 1", lg: "span 2" }}
-        style={{ color: theme.colors.text.orange }}
+        style={{ color: "#FFA500" }}
       >
         <Flex align={{ base: "center", lg: "start" }} justify={{ base: "center", lg: "start" }}>
         <Heading as="h1" size="2xl" mt={{ base: "-400px", lg: "0" }}>
