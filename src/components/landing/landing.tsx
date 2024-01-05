@@ -19,7 +19,7 @@ const rotate = keyframes`
   }
 `;
 
-const toRotate = ["Developer", "Voluntarist", "Bitcoiner"];
+const toRotate = [" Developer", " Voluntarist", " Bitcoiner"];
 
 const Landing: React.FC = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -106,9 +106,10 @@ const Landing: React.FC = () => {
       >
         <Flex align={{ base: "center", lg: "start" }} justify={{ base: "center", lg: "start" }}>
         <Heading as="h1" size="2xl" mt={{ base: "-400px", lg: "0" }}>
-          Welcome to my page, I'm a <Text as="span">{text}</Text>
-          <Text as="span" color="white">
-            |
+          Welcome to my page, I'm a  
+          <Text as="span" style={{ display: 'inline-block', width: '250px', overflow: 'hidden', whiteSpace: 'nowrap', verticalAlign: 'middle', paddingLeft: '10px', paddingBottom: '8px' }}>
+            {text}
+            <Text as="span" color="white">|</Text>
           </Text>
         </Heading>
         </Flex>
