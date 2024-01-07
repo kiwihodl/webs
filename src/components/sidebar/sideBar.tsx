@@ -5,10 +5,10 @@ import { keyframes } from '@emotion/react';
 
 const glow = keyframes`
   0% {
-    filter: drop-shadow(0 0 5px #FFA500) drop-shadow(0 0 10px #FFA500) drop-shadow(0 0 15px #FFA500) drop-shadow(0 0 20px #FFA500);
+    filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 5px #fff) drop-shadow(0 0 7px #fff) drop-shadow(0 0 10px #fff);
   }
   100% {
-    filter: drop-shadow(0 0 10px #FFA500) drop-shadow(0 0 20px #FFA500) drop-shadow(0 0 30px #FFA500) drop-shadow(0 0 40px #FFA500);
+    filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff) drop-shadow(0 0 15px #fff) drop-shadow(0 0 15px #fff);
   }
 `;
 
